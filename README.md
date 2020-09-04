@@ -69,3 +69,8 @@ Next:
  │ If you want to completely remove configuration, use your package          │ 
  │ managers --purge option, e.g, apt-get remove --purge tvheadend* 
 ```
+
+Follow Directions give password Enter Tvheadend 
+```
+http://192.168.1.82:9981
+```
