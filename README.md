@@ -74,3 +74,16 @@ Follow Directions give password Enter Tvheadend
 ```
 http://192.168.1.82:9981
 ```
+
+Install Kodi
+```
+sudo apt-get install kodi
+```
+Install hts tvheadend client
+```
+sudo apt-get install kodi-pvr-hts
+```
+Install IPTV for ffmpg transcoding
+```
+sudo apt-get install kodi-pvr-iptvsimple
+```
