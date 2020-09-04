@@ -1,6 +1,6 @@
 # Tvheadend with oscam in raspberry3
 
-Install raspberry pi os 32 bots Desktop
+Install raspberry pi os 32 bits Desktop
 
 Adjust language English and us keyboard at begining installation
 or run
