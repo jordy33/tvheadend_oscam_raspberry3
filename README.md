@@ -33,7 +33,7 @@ Or find the last commit installing gitk (visual)
 sudo apt-get install gitk
 ```
 
-Configure tvheadend enabling dvbcsa and constcw for PVU and enable bunble for ffmpeg transcoding
+Configure tvheadend enabling dvbcsa and constcw for PVU and enable bundle for ffmpeg transcoding
 ```
 ./configure --enable-dvbcsa --enable-constcw  --enable-bundle
 ```
