@@ -106,7 +106,12 @@ Compile
 ```
 make USE_LIBCRYPTO=1
 cd Distribution
+sudo mv oscam-1.20_svn11546-798-arm-linux-gnueabihf /usr/local/bin/oscam
 ```
-
+Create directory
 ```
-
+cd ~
+mkdir .oscam
+cd oscam
+mkdir tmp
+```
