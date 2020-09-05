@@ -278,3 +278,21 @@ case "$1" in
     ;;
 esac
 ```
+
+To “enable” the script and the starting up of oscam on reboot, use the following commands on Ubuntu/Debian:
+```
+sudo chmod +x /etc/init.d/oscam
+sudo update-rc.d oscam defaults
+```
+To force detect service
+```
+sudo systemctl daemon-reload
+sudo systemctl enable oscam
+sudo systemctl start oscam
+```
+
+To test:
+```
+http://192.168.1.82:8888
+```
+sudo systemctl start oscam
