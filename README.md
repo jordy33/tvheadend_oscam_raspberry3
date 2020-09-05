@@ -108,10 +108,58 @@ make USE_LIBCRYPTO=1
 cd Distribution
 sudo mv oscam-1.20_svn11546-798-arm-linux-gnueabihf /usr/local/bin/oscam
 ```
-Create directory
+Create directories
 ```
 cd ~
 mkdir .oscam
 cd oscam
 mkdir tmp
 ```
+
+Create file
+```
+vim ~/.oscam/oscam.conf
+```
+And Insert the following
+```
+# oscam.conf generated automatically by Streamboard OSCAM 1.20-unstable_svn SVN r11392
+# Read more: http://www.streamboard.tv/svn/oscam/trunk/Distribution/doc/txt/oscam.conf.txt
+
+[global]
+logfile                       = stdout
+fallbacktimeout               = 3
+bindwait                      = 5
+initial_debuglevel            = 64
+nice                          = -1
+maxlogsize                    = 200
+waitforcards                  = 0
+preferlocalcards              = 1
+lb_mode                       = 1
+lb_save                       = 100
+lb_savepath                   = /home/pi/.oscam/oscam.stat
+lb_auto_timeout_t             = 26000
+
+[cache]
+
+[streamrelay]
+stream_relay_enabled          = 0
+
+[dvbapi]
+enabled                       = 1
+au                            = 1
+pmt_mode                      = 4
+listen_port                   = 9001
+delayer                       = 60
+ecminfo_type                  = 4
+user                          = tvheadend
+read_sdt                      = 1
+extended_cw_api               = 1
+boxtype                       = pc
+
+[webif]
+httpport                      = 8888
+httprefresh                   = 2
+httppollrefresh               = 2
+httpallowed                   = 127.0.0.1,192.168.0.0-192.168.254.254
+```
+
