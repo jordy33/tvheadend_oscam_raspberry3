@@ -87,3 +87,26 @@ Install IPTV for ffmpg transcoding
 ```
 sudo apt-get install kodi-pvr-iptvsimple
 ```
+
+### Install OSCAM
+
+```
+cd /home/pi
+git clone https://github.com/oscam-emu/oscam-patched
+cd oscam-patched
+git checkout oscam11546-emu798
+```
+
+for options:
+```
+./config.sh | more
+```
+
+Compile
+```
+make USE_LIBCRYPTO=1
+cd Distribution
+```
+
+```
+
