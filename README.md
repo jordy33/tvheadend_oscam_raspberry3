@@ -163,3 +163,64 @@ httppollrefresh               = 2
 httpallowed                   = 127.0.0.1,192.168.0.0-192.168.254.254
 ```
 
+Create the file:
+```
+vim ~/.oscam/oscam.server
+```
+
+And Insert the following
+
+```
+[reader]
+label                         = emulator
+protocol                      = emu
+device                        = emulator
+caid                          = 090F,0500,1801,0604,2600,FFFF,0E00,4AE1,1010
+detect                        = cd
+disablecrccws_only_for        = 0E00:000000
+ident                         = 0D00:0000C0;0D02:0000A0;0500:023800,021110,007400;0E00:000000;1801:000000;1010:000000
+group                         = 1
+emmcache                      = 2,0,2,0
+emu_auproviders               = 0E00:000000
+auprovid                      = 000E00
+
+[reader]
+label                         = SoftCam.Key
+protocol                      = constcw
+device                        = /home/pi/.oscam/SoftCam.Key
+caid                          = 0D00,0D02,090F,0500,1801,0604,2600,FFFF,0E00,4AE1,1010
+ident                         = 1801:000000,001101;0604:000000;2600:000000;FFFF:000000;0E00:000000;4AE1:000000;1010:000000
+group                         = 1
+
+```
+
+Create the file:
+```
+vim ~/.oscam/oscam.services
+```
+
+And insert the following:
+```
+# oscam.services generated automatically by Streamboard OSCAM 1.20_svn SVN r11441
+# Read more: http://www.streamboard.tv/svn/oscam/trunk/Distribution/doc/txt/oscam.services.txt
+
+[afn]
+caid                          = 0E00
+provid                        = 000000
+srvid                         = 0004,0005,0006,0007,0008,0009,012C,0098,0096,04B1,03E9,04B2,00AD,00B7,00B9,00AF,019E,0193,019D,0192,0191,004A,004C,009D,00A0,004B,0097,000F,0047,0048,0003
+```
+
+Create the file:
+```
+vim ~/.oscam/oscam.user
+```
+
+And insert the following:
+```
+[account]
+user                          = tvheadend
+pwd                           = tvheadend
+monlevel                      = 4
+au                            = 1
+group                         = 1,2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19,21,22,23,24,25,26,27,28,29,31,32,33,34,35,36,37,38
+```
