@@ -296,3 +296,16 @@ To test:
 http://192.168.1.82:8888
 ```
 sudo systemctl start oscam
+
+Go to Tvheadend and 
+Configure CAs
+```
+Configuration/CAs/+Add/CAPMT
+Enabled: [x]
+Name: emu
+Mode: OSCam net protocol (rev >= 10389)
+Camd.socket filename / IP Address (TCP mode): 127.0.0.1 
+Listen / Connect port: 9001
+```
+
+Click Save
