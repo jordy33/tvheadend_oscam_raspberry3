@@ -14,6 +14,7 @@ Open a ssh connection
 Install Dependencies:
 
 ```
+sudo apt-get install vim
 sudo apt install gettext
 sudo apt-get install libssl-dev
 sudo apt install cmake
@@ -223,4 +224,57 @@ pwd                           = tvheadend
 monlevel                      = 4
 au                            = 1
 group                         = 1,2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19,21,22,23,24,25,26,27,28,29,31,32,33,34,35,36,37,38
+```
+
+Create Deamon at run boot
+```
+sudo vim /etc/init.d/oscam
+```
+Insert the following
+```
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides: oscam
+# Required-Start: $local_fs $network $remote_fs
+# Required-Stop: $local_fs $network $remote_fs
+# Default-Start:  2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: start and stop service oscam
+# Description: oscam
+### END INIT INFO
+
+DAEMON=/usr/local/bin/oscam
+PIDFILE=/var/run/oscam.pid
+DAEMON_OPTS="-p 4096 -r 2 -B ${PIDFILE} -c /home/pi/.oscam -t /home/pi/.oscam/tmp"
+
+test -x ${DAEMON} || exit 0
+
+. /lib/lsb/init-functions
+
+case "$1" in
+  start)
+    log_daemon_msg "Starting OScam..."
+    /sbin/start-stop-daemon --start --quiet --background --name oscam --exec ${DAEMON} -- ${DAEMON_OPTS}
+    log_end_msg $?
+    ;;
+  stop)
+    log_daemon_msg "Stopping OScam..."
+    /sbin/start-stop-daemon -R 5 --stop --name oscam --exec ${DAEMON}
+    log_end_msg $?
+    ;;
+  restart)
+    $0 stop
+    $0 start
+    ;;
+  force-reload)
+    $0 stop
+    /bin/kill -9 `pidof oscam`
+    /usr/bin/killall -9 oscam
+    $0 start
+    ;;
+  *)
+    echo "Usage: /etc/init.d/oscam {start|stop|restart|force-reload}"
+    exit 1
+    ;;
+esac
 ```
